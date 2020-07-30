@@ -1,0 +1,92 @@
+.nav {
+  // 실제 인풋 체크박스
+  &-checkbox {
+    display: none;
+  }
+
+  // label
+  &-button {
+    background-color: #c4e3ff;
+    width: 7rem;
+    height: 6rem;
+    position: fixed;
+    top: 7rem;
+    right: 8rem;
+    z-index: 2000;
+    cursor: pointer;
+    border-radius: 2px;
+    box-shadow: 0 1rem 1rem rgba(#000, 0.1);
+    text-align: center;
+
+    // display: none;
+  }
+
+  &-bg {
+    background-image: radial-gradient($color-primary, $color-secondary);
+    width: 7rem;
+    height: 6rem;
+    position: fixed;
+    top: 7rem;
+    right: 8rem;
+    z-index: 1000;
+    border-radius: 2px;
+    transition: all 0.8s;
+  }
+
+  // 체크가 됬을때 형제요소인 &-bg의 스타일을 지정
+  &-checkbox:checked ~ &-bg {
+    //크기를 80배로
+    transform: scale(80);
+  }
+
+  // 햄버거 ICON
+  &-icon {
+    position: relative;
+    margin-top: 3rem;
+
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &,
+    &::before,
+    &::after {
+      display: inline-block;
+      width: 3rem;
+      height: 2px;
+      background-color: #333;
+    }
+  }
+
+  &-button:hover &-icon::before {
+    top: -1rem;
+  }
+  &-button:hover &-icon::after {
+    top: 1rem;
+  }
+
+  // 체크박스가 체크됐을시 형제요소인 &-button의
+  // 자식요소인 &-icon, &-icon::before, &-icon::after의 스타일 지정
+  &-checkbox:checked ~ &-button &-icon {
+    background-color: transparent;
+  }
+  &-checkbox:checked ~ &-button &-icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+  &-checkbox:checked ~ &-button &-icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}

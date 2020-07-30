@@ -1,0 +1,14 @@
+{
+  "liveSassCompile.settings.formats": [
+    // This is Default.
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      // 컴파일 경로 ~/ (해당 sass파일이 있는 폴더)
+      "savePath": "~/../css"
+    }
+  ],
+  "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
+  "liveSassCompile.settings.generateMap": true,
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"]
+}
